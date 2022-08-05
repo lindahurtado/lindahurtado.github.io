@@ -1,3 +1,5 @@
+Esta aplicación esta realizada en React, el versionamiento del npm es 8.11.0 y de node es v16.16.0
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
