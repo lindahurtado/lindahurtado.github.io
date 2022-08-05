@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { PostItem } from "../components/postItem/postItem";
+import "../styles/home.css"
 
 export const Home = () => {
 
@@ -37,29 +38,31 @@ export const Home = () => {
   }
 
   return (
-    <div>
-      <div className="select-container">
-        <select value={""} onChange={handleChange}>
-          {tag && tag.map((option, i) => (
-            <option value={option}>{option}</option>
-          ))}
-        </select>
-      </div>
-      {postService &&
-        postService.map((po, i) => {
-          return (
-            <>
-              <PostItem
-                key={i}
-                id={po.id}
-                image={po.image}
-                likes={po.likes}
-                text={po.text}
-                owner={po.owner.firstName}
-              />
-            </>
-          );
-        })}
+    <div className="container">
+        <div className="label">
+            <label className="label--home">Blog</label>
+        </div>
+        <div className="select--container">
+            <select value={""} onChange={handleChange} className="select--options">
+                {tag && tag.map((option, i) => (
+                    <option value={option}>{option}</option>
+                ))}
+            </select>
+        </div>
+        {postService &&
+            postService.map((po, i) => {
+            return (
+                <div className="posts" key={i}>
+                    <PostItem
+                        id={po.id}
+                        image={po.image}
+                        name={po.owner.firstName}
+                        lastName={po.owner.lastName}
+                        tags={po.tags}
+                    />
+                </div>
+            );
+            })}
     </div>
   );
 };

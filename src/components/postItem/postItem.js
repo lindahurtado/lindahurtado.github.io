@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import "./postItem.css"
+import "../../styles/postItem.css"
 
-export const PostItem = ({id, image, likes, text, owner}) => {
+export const PostItem = ({id,image, name, lastName, tags}) => {
 
     const navigate = useNavigate();
     const itemRedirect = () => {
@@ -10,15 +10,20 @@ export const PostItem = ({id, image, likes, text, owner}) => {
     }
 
   return (
-    <div className='item-card-container' onClick={itemRedirect}>
-      <img className='item-card-image' src={image} alt='item' />
-      <div className='item-card-desc'>
-        <div className='item-card-price'>
-          <div className='item-card-value'>{likes}</div>
+    <div className='item--card__container' onClick={itemRedirect}>
+      <img className='item--card__image' src={image} alt='item' />
+      <div className='item--card__desc'>
+        <div className='item-card-location'>
+          {tags.map((e, i) => {
+            return <label key={i}>{e}{" "}</label>
+          })
+          }
         </div>
-        <div className='item-card-name'>{text}</div>
+        <div className='item--card__value'>
+          <label className='item-card__value--label'>{name}</label>
+          <label>{lastName}</label>
+        </div>
       </div>
-      <div className='item-card-location' >{owner}</div>
     </div>
   )
 }

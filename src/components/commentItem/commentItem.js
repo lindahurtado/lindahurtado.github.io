@@ -1,17 +1,15 @@
 import React from 'react'
-import "./commentItem.css"
+import "../../styles/commentItem.css"
 
 export const CommentItem = ({image, message, owner}) => {
 
-
-
   return (
-    <div className='item-card-container'>
-      <img className='item-card-image' src={image} alt='item' />
-      <div className='item-card-desc'>
-        <div className='item-card-name'>{message}</div>
+    <div className='item--card__container'>
+      <img className='item--card__image' src={image} alt='item' />
+      <div className='description'>
+        <label className='item--card__message'>{message}</label>
+        <div className='item--card__customer' >{owner}</div>
       </div>
-      <div className='item-card-location' >{owner}</div>
     </div>
   )
 }

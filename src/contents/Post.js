@@ -25,13 +25,13 @@ export const Post = () => {
       {dataComment && dataComment.length >= 1 ?
         dataComment.map((po,i) => {
           return (
-            <>
-              <CommentItem key={i} 
+            <div key={i} className="posts">
+              <CommentItem  
                 image={po.owner.picture}
                 message={po.message}
                 owner={po.owner.firstName}
               />
-            </>
+            </div>
           );
         })
         :
